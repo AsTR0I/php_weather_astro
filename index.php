@@ -7,5 +7,19 @@
 </head>
 <body>
     <p>hello</p>
+    <p>All tasks:</p>
+    <?php 
+        $data = "SELECT * FROM `tasks`";
+        if($tasks = mysqli_query($conn, $data)){
+            if(mysqli_num_rows($tasks) > 0){
+                while($task = mysqli_fetch_array($users)) {
+                    echo "<tr>
+                    <td>" . $task['id'] . "</td>
+                    <td>" . $task['title'] . "</td>
+                    </tr>";
+                }
+            }
+        }
+    ?>
 </body>
 </html>
